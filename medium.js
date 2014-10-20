@@ -10,7 +10,7 @@
  */
 
 
-var Medium = (function (w, d) {
+(function (w, d) {
 
 	'use strict';
 
@@ -1926,5 +1926,10 @@ var Medium = (function (w, d) {
 	Medium.domesticatedBehavior = 'domesticated';
 	Medium.wildBehavior = 'wild';
 
-	return Medium;
+	// Export for CommonJS & window global
+  if (typeof module != 'undefined') {
+    module.exports = Medium;
+  } else {
+    w.Medium = Medium;
+  }
 }).call(this, window, document);
